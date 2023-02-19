@@ -77,7 +77,8 @@ class DBStorage:
 
     def get(self, cls, id):
         """
-        Returns the object based on the class name and its ID, or None if not found
+        Returns the object based on the class name and its ID, or
+        None if not found
         """
         if cls not in classes.values():
             return None
@@ -87,13 +88,13 @@ class DBStorage:
             if (value.id == id):
                 return value
 
-        return value
+        return None
 
     def count(self, cls=None):
         """
         count the number of objects in storage
         """
-	all_class = classes.values()
+        all_class = classes.values()
 
         if not cls:
             count = 0
@@ -102,4 +103,4 @@ class DBStorage:
         else:
             count = len(models.storage.all(cls).values())
 
-        return count
+        return 
